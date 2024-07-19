@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Name</title>
+    <link href="autumn.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="container">
+
+        <!-- Header Section -->
+        <div id="title">
+            <h1>YourWebsite.com</h1>
+        </div>
+
+        <!-- Banner Section -->
+        <div id="banner"></div>
+
+        <!-- Navigation Menu -->
+        <div class="container">
+            <ul id="top-nav">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content Section -->
+        <div id="content">
+            <!-- Welcome Section -->
+            <section id="welcome">
+                <h1>Welcome</h1>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur mi. Sed interdum. Nam facilisis dui a nisi. Phasellus euismod augue quis erat.</p>
+                <div style="float: right; width: 125px; height: 5em; margin: 10px 20px 0 5px; font-family: arial, helvetica, georgia; font-size: 16px; font-weight:normal; line-height: 19px; color: #cc9933; text-align: right;">
+                    <span style="color:#663300;">"...autumn is a second </span>spring when every <span style="color: #C86000;">leaf is a flower... "</span>
+                </div>
+                <p>Hello, I'm Denise (aka d50) and this is my first design for OSWD. The top photograph of leaves was taken by me in the local park last autumn. The page validates as XHTML 1.0 Transitional using valid CSS. The page has been tested in Mozilla and IE6.</p>
+            </section>
+
+            <!-- Featured Posts Section -->
+            <section id="featured-posts">
+                <h1>Featured Posts</h1>
+                <article>
+                    <h2>Post Title 1</h2>
+                    <p>Brief description of the post...</p>
+                    <a href="post1.html">Read more</a>
+                </article>
+                <article>
+                    <h2>Post Title 2</h2>
+                    <p>Brief description of the post...</p>
+                    <a href="post2.html">Read more</a>
+                </article>
+            </section>
+
+            <!-- Latest Reviews Section -->
+            <section id="latest-reviews">
+                <h1>Latest Reviews</h1>
+                <article>
+                    <h2>Product Review 1</h2>
+                    <p>Brief description of the product review...</p>
+                    <a href="review1.html">Read more</a>
+                </article>
+                <article>
+                    <h2>Product Review 2</h2>
+                    <p>Brief description of the product review...</p>
+                    <a href="review2.html">Read more</a>
+                </article>
+            </section>
+
+            <!-- Newsletter Signup Section -->
+            <section id="newsletter">
+                <h1>Subscribe to Our Newsletter</h1>
+                <form id="newsletter-form">
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- Sidebar Section -->
+        <div id="side-menu">
+            <h2 class="sideheader">Links</h2>
+            <div id="navcontainer">
+                <ul id="side-nav">
+                    <li><a href="http://www.oswd.org/" title="Open Source Web Design">OSWD</a></li>
+                    <li><a href="http://www.w3schools.com/" title="CSS tutorials">W3Schools</a></li>
+                    <li><a href="http://stylegala.com/" title="Free web buttons">Style Gala</a></li>
+                    <li><a href="http://css.maxdesign.com.au/listamatic/" title="CSS menus">Listamatic</a></li>
+                </ul>
+
+                <h2 class="sideheader">News</h2>
+                <div class="scroll">
+                    <h1>May 2006</h1>
+                    <p class="news">Use this space as a mini weblog maybe...</p>
+
+                    <h1>Jan 2006</h1>
+                    <p class="news">Or maybe not!</p>
+                </div>
+            </div>
+
+            <div id="more-links">
+                <p>Fusce a nisi sed urna aliquet molestie. Aenean pretium, orci vitae lobortis rutrum, magna arcu pulvinar elit, id suscipit nunc tellus in felis.</p>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div id="footer">
+            <a href="index.html">Home</a> |
+            <a href="about.html">About</a> |
+            <a href="products.html">Products</a> |
+            <a href="reviews.html">Reviews</a> |
+            <a href="contact.html">Contact</a>
+            <p>&copy; 2024 YourWebsite. All rights reserved. Design by You.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Newsletter Signup -->
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+
+            fetch('/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Subscription successful!');
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>
